@@ -10,12 +10,12 @@ No = 25.8632
 Nn = 5.7692
 Ncl = 5.7692
 
-Kp = 7.008
-Kp1h2o = 0.02233
-Kp2h2o = 0.02091
-Kph2 = 0.006649
-Kphcl = 4.5983 * (10**(-3))
-Kpno = 0.008786
+Kp = 6.811
+Kp1h2o = 0.006037
+Kp2h2o = 0.004625
+Kph2 = 0.0006284
+Kphcl = 0.4472 * (10**(-3))
+Kpno = 0.003391
 
 h, i, j, k, l = (0,) * 5
 temp = 0
@@ -65,7 +65,7 @@ ngg = equations()
 h, i, j, k, l = sp.symbols('h i j k l')
 def equations1():
     global a, b, c, d, e, f, g, m, h, i, j, k, l, ng
-    p_ng = 70 / ng
+    p_ng = 70.92 / ng
     equations1 = [
         sp.Eq(h, (b/d)**2 * (Kp1h2o**2) * (p_ng**(-1))),
         sp.Eq(i, (b/(d**0.5)) * Kp2h2o * (p_ng**(-0.5))),
@@ -95,9 +95,9 @@ equations1()
 
 
 equations()
-equations1()
-equations()
-equations1()
-equations()
-equations1()
-equations()
+# equations1()
+# equations()
+# equations1()
+# equations()
+# equations1()
+# equations()
