@@ -33,21 +33,13 @@ def equations():
         sp.Eq((c*b)/(a*d), Kp),
         sp.Eq(2*e, Nn - j),
         sp.Eq(f, Ncl - l),
-        # sp.Eq(h, 0),
-        # sp.Eq(i, 0),
-        # sp.Eq(j, 0),
-        # sp.Eq(k, 0),
-        # sp.Eq(l, 0),
     ]
 
     # 解方程组
     solutions = sp.solve(equations, (a, b, c, d, e, f, g, m))
 
-    # 打印解
-    print("解为:", solutions)
     for i1 in solutions:
         if not any(num < 0 for num in i1):
-            print(i1)
             global ng
             a, b, c, d, e, f, g, m = i1
             if temp == 0:
@@ -55,14 +47,9 @@ def equations():
                 temp = 1
             else:
                 ng = sum(i1) - m + ng
-            print(ng)
             print(a, b, c, d, e, f, g, h, i, j, k, l, m)
             h, i, j, k, l = sp.symbols('h i j k l')
-            return ng
 
-ngg = equations()
-
-h, i, j, k, l = sp.symbols('h i j k l')
 def equations1():
     global a, b, c, d, e, f, g, m, h, i, j, k, l, ng
     p_ng = 70.92 / ng
@@ -75,29 +62,21 @@ def equations1():
     ]
 
     solutions1 = sp.solve(equations1, (h, i, j, k, l))
-    print("解为:", solutions1)
     for i2 in solutions1:
         if not any(num < 0 for num in i2):
-            print(i2)
             h, i, j, k, l = i2
             ng = sum(i2)
-            print(ng)
             a, b, c, d, e, f, g, m = sp.symbols('a b c d e f g m')
-
-equations1()
-# while 1:
-#     ngg1 = equations()
-#     equations1()
-#     if abs(ngg1-ngg)/ngg1 < 0.0001:
-#         print(ngg1)
-#         break
-#     ngg = ngg1
-
-
 equations()
-# equations1()
-# equations()
-# equations1()
-# equations()
-# equations1()
-# equations()
+print('第一次')
+equations1()
+equations()
+print('第二次')
+equations1()
+equations()
+print('第三次')
+equations1()
+equations()
+print('第四次')
+equations1()
+equations()
